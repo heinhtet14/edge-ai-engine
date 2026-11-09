@@ -1,0 +1,42 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+.pytest_cache/
+.ruff_cache/
+.mypy_cache/
+
+# Model artifacts — never commit (large; TensorRT engines are device-specific)
+*.onnx
+*.onnx.data
+*.engine
+*.plan
+*.trt
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.gguf
+checkpoints/
+outputs/
+engines/
+calibration_cache/
+
+# Data & caches
+data/
+datasets/
+.cache/
+wandb/
+runs/
+results/**/raw/
+
+# Secrets
+.env
+*.token
+
+# OS / editors
+.DS_Store
+.vscode/
+.idea/
