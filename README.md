@@ -12,7 +12,7 @@ SmolVLA → pi0 → world models · NVIDIA Jetson Orin Nano · SO-ARM101 · LeRo
 ![lerobot](https://img.shields.io/badge/🤗%20LeRobot-SmolVLA%20·%20pi0-yellow)
 ![license](https://img.shields.io/badge/license-MIT-blue)
 
-[Project website](#project-website) · [Roadmap](docs/ROADMAP.md) · [Design decisions](docs/decisions/) · [Jetson quirks](docs/jetson-quirks.md)
+[Project website](#project-website) · [Roadmap](docs/ROADMAP.md) · [Design decisions](docs/decisions/) · [Research](docs/research/) · [Learning log](docs/learning/) · [Jetson quirks](docs/jetson-quirks.md)
 
 </div>
 
