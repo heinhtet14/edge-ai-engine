@@ -1,0 +1,45 @@
+{
+  "updated": "2026-11-09",
+  "phases": [
+    {
+      "id": "A",
+      "name": "SmolVLA",
+      "milestones": [
+        { "id": "M0", "title": "Repo + environment", "machine": ["TRAIN", "JETSON"], "status": "in_progress",
+          "summary": "Repo, docs, website skeleton, pinned setup scripts, environment checks on both machines." },
+        { "id": "M1", "title": "Safety layer + dry-run", "machine": ["JETSON"], "status": "planned",
+          "summary": "Joint/velocity/torque limits, action clamp, e-stop, watchdog, dry-run mode." },
+        { "id": "M2", "title": "Arm bring-up", "machine": ["JETSON"], "status": "planned",
+          "summary": "Motor setup, leader + follower calibration, teleop test, wrist camera check." },
+        { "id": "M3", "title": "Public dataset selection", "machine": ["TRAIN"], "status": "planned",
+          "summary": "Pick and visualize a public SO-101 dataset; fix the held-out split." },
+        { "id": "M4", "title": "Fine-tune SmolVLA", "machine": ["TRAIN"], "status": "planned",
+          "summary": "Config-driven BF16 fine-tuning with checkpoints, logs and offline eval." },
+        { "id": "M5", "title": "Deploy on Jetson", "machine": ["JETSON"], "status": "planned",
+          "summary": "Sync and async/chunked control loops with per-stage timing." },
+        { "id": "M6", "title": "Benchmark harness", "machine": ["JETSON"], "status": "planned",
+          "summary": "One command: latency p50/p95, control Hz, memory, power, accuracy." },
+        { "id": "M7", "title": "Optimization ladder", "machine": ["JETSON"], "status": "planned",
+          "summary": "FP16/BF16 → TensorRT FP16 → TensorRT INT8 → INT4 → chunk-size sweeps." },
+        { "id": "M8", "title": "Write-up A", "machine": [], "status": "planned",
+          "summary": "Results table, accuracy-vs-speed plot, real-arm trials." }
+      ]
+    },
+    {
+      "id": "B",
+      "name": "pi0",
+      "milestones": [
+        { "id": "M9", "title": "pi0 on the Orin Nano", "machine": ["TRAIN", "JETSON"], "status": "planned",
+          "summary": "Quantize a 3.3B-parameter VLA to fit 8 GB; benchmark and deliver a feasibility verdict." }
+      ]
+    },
+    {
+      "id": "C",
+      "name": "World models",
+      "milestones": [
+        { "id": "M10", "title": "Scoping", "machine": ["TRAIN"], "status": "planned",
+          "summary": "Evaluate world-model options that fit local compute." }
+      ]
+    }
+  ]
+}
