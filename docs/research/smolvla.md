@@ -129,7 +129,7 @@ lerobot-train \
 
 **Small GPUs:** community reports say defaults assume 16–24 GB. Under memory pressure: smaller batch +
 gradient accumulation, bf16, gradient checkpointing, shorter chunk, or LoRA via PEFT
-([search summary sources][ggando], [openelab][openelab]). *Our RTX 2000 Ada has 16 GB — batch size to be found empirically in M4.*
+([openelab][openelab]; community reports, anecdotal). *Our RTX 2000 Ada has 16 GB — batch size to be found empirically in M4.*
 
 ### Data lessons (the part that actually decides success)
 - **~50 episodes minimum**; official tests: 50 episodes over 5 cube positions × 10 each worked, **25 was not enough** ([docs][docs]).
