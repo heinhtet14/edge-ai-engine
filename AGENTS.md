@@ -6,7 +6,10 @@ Human contributors: this is also the fastest way to learn the project's rules.
 ## What this project is
 
 Run vision-language-action (VLA) robot policies on an **NVIDIA Jetson Orin Nano 8 GB** controlling an
-**SO-ARM101** arm, then optimize and benchmark every step. Order: **SmolVLA → π0/π0.5 → world models**.
+**SO-ARM101** arm, then optimize and benchmark every step.
+
+**Current scope: SmolVLA only.** π0/π0.5 and world models are out of scope until the owner says
+otherwise — don't plan, research, or add code for them.
 
 It is a **portfolio and learning project**: clear docs and reproducible numbers matter as much as code.
 The owner is learning — explain trade-offs, don't just make choices silently.
@@ -82,7 +85,6 @@ PyPI `torch` wheel works on the Jetson.
 
 - Python ↔ C++ link: pybind11 module vs. shared-memory IPC.
 - Exporter: write our own vs. build on [eetmie/jetson-orin-nano-vla](https://github.com/eetmie/jetson-orin-nano-vla).
-- Phase B target: π0 vs. π0.5.
 - JetPack: stay on 6.2 vs. upgrade to 7.2.x.
 - Camera strategy for wrist-only hardware vs. two-camera public datasets (decided in M3).
 
@@ -114,7 +116,12 @@ The C++ runtime directory will be added with its milestone; follow the layout in
 
 ## Conventions
 
-- **Python:** 3.10-compatible (JetPack system Python), type hints, small modules, configs over constants.
+- **Python:** [TRAIN] env is Python 3.12 (LeRobot >= 0.5.0 requires it). Code that will run on the Jetson
+  stays 3.10-compatible until the Jetson Python question is settled (see `docs/jetson-quirks.md`).
+  Type hints, small modules, configs over constants.
+- **Precision naming:** LeRobot 0.7.0 loads SmolVLA mostly in **bf16** by default. Call that `stock`;
+  "FP32" means every weight explicitly cast to fp32 (see `scripts/smoke_smolvla.py`). Never label the
+  stock load as FP32.
 - **C++:** C++17, CMake, TensorRT 10 API (`enqueueV3`, named tensors), RAII for CUDA/TensorRT resources.
 - **Docs:** keep `README.md` roadmap table, `docs/ROADMAP.md`, and `site/data/progress.json` in sync
   when a milestone changes status. New explanations for the owner go in `docs/learning/NN-topic.md`;

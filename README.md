@@ -110,8 +110,20 @@ Every script is tagged **`[JETSON]`** or **`[TRAIN]`** for the machine it runs o
 
 ## Getting started
 
-> 🚧 Setup scripts land in **M0**. Pinned versions and every Jetson-specific install quirk will be
-> recorded in [docs/jetson-quirks.md](docs/jetson-quirks.md).
+**[TRAIN]** — x86_64 Linux + NVIDIA GPU, [uv](https://docs.astral.sh/uv/), ~15 GB free:
+
+```bash
+bash scripts/train/setup.sh                    # .venv with Python 3.12 + pinned LeRobot 0.7.0 / torch 2.15
+source .venv/bin/activate
+hf auth login                                  # for gated models/datasets
+python scripts/check_env.py --role train       # PASS/WARN/FAIL per check
+python scripts/smoke_smolvla.py                # downloads lerobot/smolvla_base, predicts one action chunk
+```
+
+Pinned versions: [`scripts/train/requirements-train.txt`](scripts/train/requirements-train.txt).
+
+**[JETSON]** — 🚧 in progress. Every Jetson-specific install quirk goes in
+[docs/jetson-quirks.md](docs/jetson-quirks.md).
 
 ## Safety
 
