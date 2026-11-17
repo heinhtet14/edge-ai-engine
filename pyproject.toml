@@ -1,0 +1,19 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "edge-ai-engine"
+dynamic = ["version"]
+description = "VLA policies (SmolVLA) on Jetson Orin Nano: control, export, TensorRT benchmarks"
+readme = "README.md"
+license = { text = "MIT" }
+# Package code stays 3.10-compatible (JetPack 6.2 system Python); the [TRAIN] env uses 3.12
+# because LeRobot >= 0.5.0 requires it. Dependencies are pinned per machine in scripts/*/requirements-*.txt.
+requires-python = ">=3.10"
+
+[tool.setuptools.dynamic]
+version = { attr = "edge_ai_engine.__version__" }
+
+[tool.setuptools.packages.find]
+where = ["src"]

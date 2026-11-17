@@ -1,0 +1,4 @@
+# [TRAIN] top-level deps for the training machine. Pinned lock: requirements-train.txt
+# Regenerate: uv pip compile scripts/train/requirements.in --python-version 3.12 -o scripts/train/requirements-train.txt
+lerobot[smolvla,dataset,training]==0.7.0
+huggingface_hub  # provides the `hf` CLI
